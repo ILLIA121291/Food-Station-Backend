@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get,  } from "@nestjs/common";
 import { ProductService } from "./product.service";
 
 //@Controller('products') - данный контролер будет срабатывать при запросах https://localhost:300/products;
