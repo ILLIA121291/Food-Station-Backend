@@ -7,14 +7,24 @@ if (!process.env.IS_TS_NODE) {
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '@app/app.module';
 
+// Дополнителный импорт, устанавливать дополнительно нечего ненужно;
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
+
+
 async function bootstrap() {
   // В данном действии Nest.js создает приложение;
-  const app = await NestFactory.create(AppModule);
-
-  // В данном дейстивии происходит прослушка порта;
+  // <NestExpressApplication> - добовляем данный дженерик для создания публичной папки; 
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  
+  // Данне дейстиве создает публичную папку;
+  app.useStaticAssets(join(__dirname, 'public'));
+  
   // app.enableCors() - данная настройка необходима для того чтобы forntend и backend работали на одном ПК; 
   app.enableCors();
+
+  // В данном дейстивии происходит прослушка порта;
   await app.listen(process.env.PORT ?? 3000);
-  //await app.listen(3000);
+
 }
 bootstrap();
