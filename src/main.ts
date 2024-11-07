@@ -12,7 +12,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // В данном дейстивии происходит прослушка порта;
-
+  // app.enableCors() - данная настройка необходима для того чтобы forntend и backend работали на одном ПК; 
   app.enableCors();
   await app.listen(process.env.PORT ?? 3000);
   //await app.listen(3000);
