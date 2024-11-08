@@ -9,6 +9,12 @@ export class ProductController {
     private readonly productService: ProductService,
   ) {}
 
+  // GET ALL PRODUCTS -------------------------------------------
+  @Get('')
+  async getAllProducts () {
+    return await this.productService.getAllProducts()
+  }
+
   // ПОЛУЧЕНИЕ СПИСКА ОДНОГО ТИПА БЛЮД-------------------------------
   @Get(':slug')
   async getProductList(@Param() param: { slug: string }) {

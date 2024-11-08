@@ -4,7 +4,7 @@ import { Connection } from 'mongoose';
 const DatabaseConnection = MongooseModule.forRoot(
   // Ссылка для подключения к базе данных Atlase;
   // FoodStaion - внтури ссылки нужно укзать к какой базе данных на сервере нужно подключиться;
-  'mongodb+srv://ILLIA:ILLIA@cluster-mytest.tq0rc.mongodb.net/FoodStaion?retryWrites=true&w=majority&appName=Cluster-myTest',
+  'mongodb+srv://ILLIA:ILLIA@cluster-mytest.tq0rc.mongodb.net/food_station?retryWrites=true&w=majority&appName=Cluster-myTest',
 
   // Кнофигурационный объект;
   {

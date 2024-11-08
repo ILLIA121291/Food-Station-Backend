@@ -11,9 +11,16 @@ export class ProductService {
     @InjectModel(Product.name) private productModel: Model<Product>,
   ) {}
 
+  // GET ALL PRODUCTS -----------------------------
+  async getAllProducts() {
+    return await this.productModel.find()
+  }
+
   // Получение одного типа блюд -------------------------------------
   async getProductList(dishType: string): Promise<Product[]> {
     // Данное действие получает из базы документы с одиннаковым dishType;
     return await this.productModel.find({ dishType });
   }
+
+
 }
