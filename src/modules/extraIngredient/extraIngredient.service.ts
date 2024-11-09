@@ -14,6 +14,6 @@ export class ExtraIngredientsService {
   // GET ALL EXTRA INGREDIENTS FROM DATABASE ------
 
   async getAllExtraIngredients() {
-    return await this.extraIngredientModel.find();
+    return await this.extraIngredientModel.find({}, {_id:1, dishType:1, listExtraIngredients:1, });
   }
 }
